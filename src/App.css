@@ -1,0 +1,74 @@
+.password-div{
+  border: 5px solid #2b2222;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #2b2222;
+  width: 500px;
+  height: auto;
+}
+.copy-div{
+  display: flex;
+  padding: 10px;
+  float: #fff;
+  justify-content: space-between;
+}
+.pass{
+  color: #fff;
+  padding: 5px;
+  font-size: 15px;
+}
+.copy-button{
+  text-align: right;
+  float: right;
+  
+}
+.copy-button button{
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(83, 72, 238);
+  border: 5px solid rgb(83, 72, 238);
+  color: #fff;
+}
+.charlength{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  color: #fff;
+}
+.range{
+  padding: 10px;
+}
+.range input[type=range]{
+  width: 100%;
+}
+.pass-require{
+  padding: 10px;
+  display:grid;
+  grid-template-columns: auto auto;
+  color: #fff;
+}
+input[type=checkbox]{
+  margin: 10px;
+}
+.paas-stringth{
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.gen-button{
+  padding: 15px;
+  
+}
+.gen-button button{
+  width: 100%;
+  font-size: 20px;
+  padding: 5px;
+  font-weight: 700;
+  background-color: rgb(83, 72, 238);
+  border: 5px solid rgb(83, 72, 238);
+  border-radius: 5px;
+  color: #fff;
+}
