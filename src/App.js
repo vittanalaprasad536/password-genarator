@@ -58,7 +58,7 @@ function App() {
   }
 
   const copyHandler = () =>{
-
+    navigator.clipboard.writeText(password);
   }
 
   return (
