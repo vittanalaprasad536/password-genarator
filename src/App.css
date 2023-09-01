@@ -72,3 +72,8 @@ input[type=checkbox]{
   border-radius: 5px;
   color: #fff;
 }
+.error{
+  color: red;
+  padding: 10px;
+  text-align: center;
+}

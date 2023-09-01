@@ -3,13 +3,14 @@ import { useState } from 'react';
 
 function App() {
 
-  const [charlen, setCharlen] = useState(0);
+  const [charlen, setCharlen] = useState(4);
   const [uppercase, setUppercase] = useState(false);
   const [lowercase, setLowercase] = useState(false);
   const [numbers,setNumbers] = useState(false);
   const [symbols, setSymbols] = useState(false);
   const [strgt,setstrgt] = useState('week');
   const [password,setPassword] = useState('');
+  const [err,setError] = useState('');
   const funstrength = () =>{
     
      if (charlen <= 6){
@@ -26,18 +27,50 @@ function App() {
   }
 
   const passwordHandler=()=>{
+    var charset = "";
+    if(uppercase){
+      charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    if(lowercase){
+      charset += "abcdefghijklmnopqrstuvwxyz";
+    }
+    if(numbers){
+      charset += "0123456789";
+    }
+    if(symbols){
+      charset += "!@#$%^&*?";
+    }
+    else{
+      setError('Please select at least one from above');
+      setPassword('');
+    }
+    if(charset.length > 0){
+      var newpassword= ""
+      for(var i=0;i<charlen;i++){
+        
+        var randomnum = Math.floor(Math.random() * charset.length);
+        newpassword += charset[randomnum];
+      }
+      setPassword(newpassword);
+      setError('');
+    }
     
   }
+
+  const copyHandler = () =>{
+
+  }
+
   return (
     <div className="App">
       <div className='password-div'>
         <div className='copy-div'>
 
           <div className='pass'>
-            sD3@djn34
+            {password}
           </div>
           <div className='copy-button'>
-            <button>Copy</button>
+            <button onClick={copyHandler}>Copy</button>
           </div>
 
         </div>
@@ -57,6 +90,9 @@ function App() {
           <span><input type="checkbox" checked={lowercase} onChange={(e)=>setLowercase(e.target.checked)} />Include LowerCase Letters</span>
           <span><input type="checkbox" checked={numbers} onChange={(e)=>setNumbers(e.target.checked)} />Include Numbers</span>
           <span><input type="checkbox" checked={symbols} onChange={(e)=>setSymbols(e.target.checked)}/>Include Symbols</span>
+        </div>
+        <div>
+          { err && (<p className='error'>{err}</p>)}
         </div>
         <div className='paas-stringth'>
           <div>
